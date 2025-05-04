@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PORTFOLIO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom Styles */
+        :root {
+            --gradient-start: #1a1a2e;
+            --gradient-mid: #16213e;
+            --gradient-end: #0f3460;
+            --accent-color: #4fc3f7;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+        }
+
+        body {
+            padding-top: 80px;
+            font-family: 'Ubuntu', sans-serif;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            color: var(--text-light);
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            transition: all 0.3s ease;
+        }
+
+        #logos {
+            font-size: 1.5rem;
+            margin-left: 3rem;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 600;
+            /* color: var(--text-light); */
+            color: white;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .prj-btn {
+            padding: 10px;
+            text-decoration: none;
+            background-color: var(--text-light);
+            color: var(--gradient-end);
+            border-radius: 5px;
+            margin-right: 50px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .prj-btn:hover {
+            background-color: black;
+            color: black;
+        }
+
+        /* Intro Section Styling */
+        /* Mobile view when navbar is expanded */
+body.navbar-expanded .background {
+    background-image: none;
+    background-color: var(--gradient-start);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+}
+        .background {
+            height: 100vh;
+            width: 100%;
+            background-image: url("/pictures/real.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: left;
+            padding-left: 10%;
+            position: relative;
+            background-color: white !important;
+        }
+
+        .main-intro {
+            max-width: 800px;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .intro h1 span {
+            color: var(--accent-color);
+        }
+
+        .intro-js {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-primary {
+            margin-top: 20px;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            background-color: var(--accent-color);
+            border: none;
+            color: var(--gradient-end);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--text-light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            color : black;
+        }
+
+        /* About Me Section */
+        .about {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+        }
+
+        .about img {
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border: 5px solid var(--accent-color);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skills h1 {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .skills-container {
+            display: flex;
+            align-items: center;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-track {
+            display: flex;
+            gap: 50px;
+            position: absolute;
+            white-space: nowrap;
+            will-change: transform;
+            animation: scroll 25s linear infinite;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-item:hover {
+            transform: scale(1.15) translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-icon {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover .skill-icon {
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+        }
+
+        .skill-name {
+            color: var(--text-light);
+            margin-top: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover .skill-name {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+        }
+
+        .services h1 {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .services .icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .services h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .services p {
+            font-size: 1rem;
+            color: var(--text-light);
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .services a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .services a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+        }
+
+        .contact h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            opacity: 0.9;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-light);
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(79, 195, 247, 0.25);
+            color: var(--text-light);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            color: var(--text-light);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        .footer .social-icons {
+            margin-top: 20px;
+        }
+
+        .footer .social-icons a {
+            color: var(--text-light);
+            margin: 0 15px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 900px) {
+            .intro h1 {
+                font-size: 2.5rem;
+            }
+            
+            .intro-js {
+                font-size: 1.2rem;
+            }
+            
+            .about img {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 30px;
+            }
+            
+            .skills-track {
+                gap: 30px;
+            }
+            
+            .skill-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .box {
+                padding: 20px;
+            }
+        }
+        
+        /* Center the last row in services */
+        .services .row {
+            justify-content: center;
+        }
+        
+        /* Adjust box width for better alignment */
+        .services .col-md-6 {
+            max-width: 400px;
+        }
+        @media (max-width: 900px) {
+            .background {
+                background-image: none;
+                background-color: rgb(59, 58, 58)  !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <h1 id="logos"><span style="color: var(--accent-color);">PORT</span><span>FOLIO</span></h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-5">
+                    <li class="nav-item mx-3">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#about">About Me</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#contact">Contact Me</a>
+                    </li>
+                </ul>
+                <a href="#services" class="prj-btn">View Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Introduction Section -->
+    <section class="background">
+        <div class="main-intro">
+            <div class="intro">
+                <h1>HELLO <span>I AM</span></h1>
+            </div>
+            <div class="introo">
+                <h1 style="color: white;">MUHAMMAD ANEEB KASHIF</h1>
+                <h4 class="intro-js">I am a <span class="js-intro"></span></h4>
+                <a href="#about" class="btn btn-primary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <img src="/pictures/team1.jpg" class="img-fluid" alt="Profile Picture">
+                </div>
+                <div class="col-md-8">
+                    <h5 class="about-heading">ABOUT ME</h5>
+                    <h4 class="intro-js">I am a <span class="js-intro"></span></h4>
+                    <p>Welcome to my portfolio! I am a professional Logo Designer, MERN STACK Developer, and C++ , JAVA , PYTHON
+                        Programmer with a passion for creating visually compelling designs and high-performance
+                        applications. With experience for freelancing clients, I bring creativity and technical
+                        expertise to every project I undertake.</p>
+                    <a href="#services" class="btn btn-primary">View Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <h1>MY SKILLS</h1>
+        <div class="container">
+            <div class="skills-container">
+                <div class="skills-track">
+                    <!-- First Set -->
+                    <div class="skill-item" onclick="window.open('https://en.cppreference.com/w/','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="skill-icon" alt="C++"/>
+                        <span class="skill-name">C++</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://docs.python.org/3/','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="skill-icon" alt="Python"/>
+                        <span class="skill-name">Python</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/JavaScript','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="skill-icon" alt="JavaScript"/>
+                        <span class="skill-name">JavaScript</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://docs.oracle.com/en/java/','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="skill-icon" alt="Java"/>
+                        <span class="skill-name">Java</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://reactjs.org/docs/getting-started.html','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="skill-icon" alt="React"/>
+                        <span class="skill-name">React</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://nodejs.org/en/docs/','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="skill-icon" alt="Node.js"/>
+                        <span class="skill-name">Node.js</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://www.mongodb.com/docs/','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="skill-icon" alt="MongoDB"/>
+                        <span class="skill-name">MongoDB</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://dev.mysql.com/doc/','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="skill-icon" alt="MySQL"/>
+                        <span class="skill-name">MySQL</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/HTML','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="skill-icon" alt="HTML5"/>
+                        <span class="skill-name">HTML5</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/CSS','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="skill-icon" alt="CSS3"/>
+                        <span class="skill-name">CSS3</span>
+                    </div>
+                    
+                    <!-- Duplicate Set for Infinite Loop -->
+                    <div class="skill-item" onclick="window.open('https://en.cppreference.com/w/','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="skill-icon" alt="C++"/>
+                        <span class="skill-name">C++</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://docs.python.org/3/','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="skill-icon" alt="Python"/>
+                        <span class="skill-name">Python</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/JavaScript','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="skill-icon" alt="JavaScript"/>
+                        <span class="skill-name">JavaScript</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://docs.oracle.com/en/java/','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="skill-icon" alt="Java"/>
+                        <span class="skill-name">Java</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://reactjs.org/docs/getting-started.html','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="skill-icon" alt="React"/>
+                        <span class="skill-name">React</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://nodejs.org/en/docs/','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="skill-icon" alt="Node.js"/>
+                        <span class="skill-name">Node.js</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://www.mongodb.com/docs/','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="skill-icon" alt="MongoDB"/>
+                        <span class="skill-name">MongoDB</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://dev.mysql.com/doc/','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="skill-icon" alt="MySQL"/>
+                        <span class="skill-name">MySQL</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/HTML','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="skill-icon" alt="HTML5"/>
+                        <span class="skill-name">HTML5</span>
+                    </div>
+                    <div class="skill-item" onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/CSS','_blank')">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="skill-icon" alt="CSS3"/>
+                        <span class="skill-name">CSS3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h1 class="text-center mb-5">SERVICES WE PROVIDE</h1>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="box">
+                        <i class="fas fa-palette icon"></i>
+                        <h1>GRAPHIC DESIGNER</h1>
+                        <p>I create unique logos and branding materials using industry-standard tools like Photoshop and Illustrator. My designs help businesses establish a strong visual identity that stands out in competitive markets.</p>
+                        <p>Services include logo design, branding packages, business cards, social media graphics, and marketing materials.</p>
+                        <a href="LogosClients.7z" download="LogosClients.zip">View Design Projects <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="box">
+                        <i class="fas fa-code icon"></i>
+                        <h1>MERN STACK DEVELOPER</h1>
+                        <p>Specializing in full-stack development with MongoDB, Express.js, React, and Node.js. I build responsive, scalable web applications with modern architectures and clean code practices.</p>
+                        <p>From RESTful APIs to dynamic SPAs, I deliver complete solutions with optimized performance, security, and user experience.</p>
+                        <a href="https://github.com/Aneeb-Kashif2/Projects">View Web Projects <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="box">
+                        <i class="fas fa-laptop-code icon"></i>
+                        <h1>C++ PROGRAMMER</h1>
+                        <p>Expert in developing high-performance applications using C++. My solutions include system programming and algorithm optimization for resource-intensive tasks.</p>
+                        <a href="https://github.com/Aneeb-Kashif2/c-.git">View C++ Projects <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="box">
+                        <i class="fas fa-laptop-code icon"></i>
+                        <h1>JAVA PROGRAMMER</h1>
+                        <p>Specialized in Java development for enterprise applications using java . I follow OOP principles and design patterns to create maintainable, scalable solutions.</p>
+                        <a href="https://github.com/Aneeb-Kashif2/java.git">View Java Projects <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="box">
+                        <i class="fas fa-laptop-code icon"></i>
+                        <h1>PYTHON PROGRAMMER</h1>
+                        <p>Versatile Python developer experienced in AI Bot development</p>
+                        <p>I develop clean, efficient Python code for diverse applications</p>
+                        <a href="https://github.com/Aneeb-Kashif2/python.git">View Python Projects <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h1 class="text-center mb-5">CONTACT ME</h1>
+            <p>Have a project in mind or want to discuss potential opportunities? Feel free to reach out!</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <form id="contactForm" action="https://formsubmit.co/aneebkashif@gmail.com" method="POST">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+                        </div>
+                        <!-- Add these hidden fields for FormSubmit -->
+                        <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+                        <input type="hidden" name="_subject" value="New Contact Form Submission">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Created By <a href="#" id="name-foot">MUHAMMAD ANEEB KASHIF</a> | <i class="fa-regular fa-copyright"></i> 2025 All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/muhammad_x_aneeb/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/muhammad-aneeb-kashif-9391a3349/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Aneeb-Kashif2"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/muhammad_x_aneeb/"><i class="fab fa-instagram"></i></a>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src = "script.js"></script>
+</body>
+</html>
